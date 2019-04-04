@@ -5,11 +5,12 @@
 Empty MVC project including :
 
 * a fresh start of loopback API with local auth and loopback-sdk-builder set without realtime application
-* a fresh start of an Angular 4 / bootstrap 4 application with complete loopback sdk at start
+* a fresh start of an Angular 7 / Angular Material 7 application including loopback authentication and basic users management
+* a fresh start of a nodeRED application
 
 ## Why ?
 
-To start a brand new MVC application, node.js and loopback on the server, Angular 4+ for front view.
+To start a brand new MVC application, node.js and loopback on the server, Angular 7+ for front view and nodeRED ready to run.
 
 I'll try to add standards modules for fields, tables, buttons and every needed thing after commissionnings.
 
@@ -18,13 +19,13 @@ I'll try to add standards modules for fields, tables, buttons and every needed t
 Three parts :
 * io-lbapp : loopback application, server side
 * io-ngapp : front end application, building in static pages of loopback based on Angular 5 & bootstrap 4 & font-awesome 4
-* io-ngapp/src/app/shared/io-nglib : modules, services, components usefull and reusable for IO Systems Angular applications => this should be object for a different repository.
+* io-ngapp/src/app/shared/lib : modules, services, components usefull and reusable for IO Systems Angular applications => this should be object for a different repository.
 
 ## Loopback models
 
 Defaults included models :
 * comment.json : all usefull comments for users, built by users themselves. There's no physical models in datasources, comments objects are embedded in all others models
-* users : loopback default authentication engine
+* io-users.json : extends loopback built-in user model
 * event.json : description of an generic event. Each event refers to an event type and a topic
 * event-type.json : descriptions of the event types
 * topic.json : descriptions of the topics, each topic can have a parent topic
@@ -39,7 +40,7 @@ You can also add default values for models (uom-categ, for example).
 
 ## TODO
 
-Add default application view and client authentication management (user creation, user connection, user management).
+Add usefull Angular modules, loopback logic and nodeRED flows for general uses
 
 ## Contributors
 
@@ -47,7 +48,7 @@ Add default application view and client authentication management (user creation
 
 ## MIT Licence 
 
-Copyright 2017 IO Systems
+Copyright 2019 IO Systems
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
