@@ -1,0 +1,45 @@
+<ng-container *ngIf="crtUser.realName && crtUser.realName.length > 0">
+  <span fxShow="true" fxShow.lt-sm="false">
+    <mat-menu #appMenu="matMenu">
+      <ng-template matMenuContent>
+        <button mat-menu-item
+         [routerLink]="['/settings/', {outlets: {settingsRouterOutlet: ['profile', crtUser.id]}}]">
+          <mat-icon>face</mat-icon>
+          <span>Profil</span>
+        </button>
+        <button mat-menu-item routerLink="/settings">
+          <mat-icon>settings</mat-icon>
+          <span>Paramètres</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Se déconnecter</span>
+        </button>
+      </ng-template>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>account_circle</mat-icon>
+      {{crtUser.realName}}
+    </button>
+  </span>
+  <span fxShow="false" fxShow.lt-sm="true">
+    <button mat-menu-item>
+      <mat-icon>face</mat-icon>
+      <span>Profil</span>
+    </button>
+    <button mat-menu-item routerLink="/settings">
+      <mat-icon>settings</mat-icon>
+      <span>Paramètres</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Se déconnecter</span>
+    </button>
+  </span>
+</ng-container>
+<ng-container *ngIf="!crtUser.realName || crtUser.realName.length <= 0">
+  <button mat-button (click)="openConnectionDialog()">Se connecter</button>
+</ng-container>

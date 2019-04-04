@@ -34,24 +34,33 @@
 * export class AppModule { }
 *
 **/
-import { JSONSearchParams } from './services/core/search.params';
 import { ErrorHandler } from './services/core/error.service';
 import { LoopBackAuth } from './services/core/auth.service';
 import { LoggerService } from './services/custom/logger.service';
 import { SDKModels } from './services/custom/SDKModels';
 import { InternalStorage, SDKStorage } from './storage/storage.swaps';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CookieBrowser } from './storage/cookie.browser';
 import { StorageBrowser } from './storage/storage.browser';
-import { UserApi } from './services/custom/User';
+import { RoleApi } from './services/custom/Role';
 import { UomApi } from './services/custom/Uom';
 import { UomCategApi } from './services/custom/UomCateg';
 import { CommentApi } from './services/custom/Comment';
 import { EventApi } from './services/custom/Event';
 import { TopicApi } from './services/custom/Topic';
 import { EventTypeApi } from './services/custom/EventType';
+import { AlarmhistoryApi } from './services/custom/Alarmhistory';
+import { EventhistoryApi } from './services/custom/Eventhistory';
+import { LogRefroidisseurApi } from './services/custom/LogRefroidisseur';
+import { RecipeApi } from './services/custom/Recipe';
+import { RecipeComponentsApi } from './services/custom/RecipeComponents';
+import { MaterialTypeApi } from './services/custom/MaterialType';
+import { MaterialApi } from './services/custom/Material';
+import { IoUserApi } from './services/custom/IoUser';
+import { EmailApi } from './services/custom/Email';
+import { RuntimeDataApi } from './services/custom/RuntimeData';
 /**
 * @module SDKBrowserModule
 * @description
@@ -62,7 +71,7 @@ import { EventTypeApi } from './services/custom/EventType';
 *  3.- Progressive applications (Angular Mobile, Ionic, WebViews, etc)
 **/
 @NgModule({
-  imports:      [ CommonModule, HttpModule ],
+  imports:      [ CommonModule, HttpClientModule ],
   declarations: [ ],
   exports:      [ ],
   providers:    [
@@ -79,15 +88,24 @@ export class SDKBrowserModule {
       providers : [
         LoopBackAuth,
         LoggerService,
-        JSONSearchParams,
         SDKModels,
-        UserApi,
+        RoleApi,
         UomApi,
         UomCategApi,
         CommentApi,
         EventApi,
         TopicApi,
         EventTypeApi,
+        AlarmhistoryApi,
+        EventhistoryApi,
+        LogRefroidisseurApi,
+        RecipeApi,
+        RecipeComponentsApi,
+        MaterialTypeApi,
+        MaterialApi,
+        IoUserApi,
+        EmailApi,
+        RuntimeDataApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

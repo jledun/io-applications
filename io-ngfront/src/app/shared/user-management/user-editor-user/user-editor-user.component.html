@@ -1,0 +1,27 @@
+<div class="user-editor-main-card">
+  <mat-card fxLayout="column nowrap" fxLayoutAlign="center start" fxLayoutGap="15px">
+    <mat-card-content *ngIf="paramsToEdit.length > 0">
+      <span fxLayout="row nowrap" fxLayoutAlign="start center" fxLayoutGap="15px">
+        <button mat-icon-button (click)="goBackToUsers()">
+          <mat-icon>navigate_before</mat-icon>
+        </button>
+        <span class="mat-title">Édition utilisateur</span>
+      </span>
+
+      <app-application-param *ngFor="let param of paramsToEdit"
+        [param]="param" (change)="paramChange($event)" (editValue)="paramClick($event)">
+      </app-application-param>
+
+      <app-application-param 
+        [param]="passwdChangeParams" (editValue)="passwdChangeClick($event)">
+      </app-application-param>
+
+      <app-application-param
+        [param]="deleteUserParam" (change)="paramChange($event)" (editValue)="deleteUserClick($event)">
+      </app-application-param>
+
+    </mat-card-content>
+
+  </mat-card>
+</div>
+

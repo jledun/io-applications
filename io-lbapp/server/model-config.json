@@ -59,5 +59,9 @@
   "EventType": {
     "dataSource": "db",
     "public": true
+  },
+  "ioUser": {
+    "dataSource": "db",
+    "public": true
   }
 }

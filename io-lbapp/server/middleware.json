@@ -6,9 +6,10 @@
   },
   "initial": {
     "compression": {},
+    "./middleware/https-redirection.js": {},
     "cors": {
       "params": {
-        "origin": true,
+        "origin": "*",
         "credentials": true,
         "maxAge": 86400
       }
@@ -48,6 +49,14 @@
     }
   },
   "final": {
+    "express-history-api-fallback": {
+      "params": [
+        "index.html",
+        {
+          "root": "$!../client"
+        }
+      ]
+    },
     "loopback#urlNotFound": {}
   },
   "final:after": {

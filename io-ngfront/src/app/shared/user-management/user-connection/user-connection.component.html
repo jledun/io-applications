@@ -1,0 +1,48 @@
+<div fxLayout="column nowrap" fxLayoutAlign="center center" fxLayoutGap="25px" class="full-screen">
+  <form [formGroup]="credentialFormGroup" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Informations de connexion</mat-card-title>
+        <mat-card-subtitle>Veuillez saisir vos identifiants pour vous connecter.</mat-card-subtitle>
+        <img mat-card-avatar src="./assets/img/iosystems.png">
+      </mat-card-header>
+      <mat-card-content>
+        <p class="mat-body-strong color-warn">{{errorMsg}}</p>
+        <div *ngIf="errorCode === 'LOGIN_FAILED_EMAIL_NOT_VERIFIED' && !checkIdentityRequestSent">
+          <button mat-button (click)="checkIdentify()">
+            Vérifier l'email
+          </button>
+        </div>
+        <mat-form-field class="full-size">
+          <input #username
+            style="width: 100%;"
+            matInput 
+            placeholder="Email ou nom d'utilisateur" 
+            formControlName="userCtrl"
+            required>
+        </mat-form-field>
+
+        <mat-form-field class="full-size">
+          <input #passwd
+            style="width: 100%;"
+            matInput type="password"
+            placeholder="Mot de passe" 
+            formControlName="passwdCtrl"
+            required>
+        </mat-form-field>
+
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="25px">
+          <mat-checkbox [checked]="rememberMe" (change)="rememberMeChange($event)">Se souvenir de moi</mat-checkbox>
+          <button type="button" mat-button (click)="createUser()">Nouvel utilisateur ?</button>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <div fxLayout="row nowrap" fxLayoutAlign="space-between center" fxLayoutGap="25px">
+          <button mat-button type="button" (click)="cancel()">Annuler</button>
+          <button mat-button type="submit" [disabled]="!credentialFormGroup.valid">Se connecter</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

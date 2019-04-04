@@ -1,0 +1,26 @@
+<span fxShow="true" fxShow.lt-sm="false">
+  <mat-toolbar color="primary" role="header" class="app-toolbar">
+    <img src="./assets/img/iosystems.png" height="36px">
+    <span class="fill-space"></span>
+    <app-loader [status]="loading"></app-loader>
+    <button mat-button><span>{{ actualdatetime }}</span></button>
+    <button mat-button><mat-icon>mailbox</mat-icon></button>
+    <app-user-topbar></app-user-topbar>
+
+  </mat-toolbar>
+</span>
+<span fxShow="false" fxShow.lt-sm="true">
+  <mat-toolbar color="primary" role="header" class="app-toolbar">
+
+    <img src="./assets/img/iosystems.png" height="36px">
+    <span class="fill-space"></span>
+    <button mat-icon-button [matMenuTriggerFor]="mainMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #mainMenu="matMenu">
+      <mat-divider></mat-divider>
+      <app-user-topbar></app-user-topbar>
+    </mat-menu>
+
+  </mat-toolbar>
+</span>
