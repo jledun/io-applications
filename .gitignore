@@ -4,5 +4,5 @@ node_modules
 .log
 client/*
 client
-#io-ngfront/src/app/shared/sdk
+io-ngfront/src/app/shared/sdk
 
