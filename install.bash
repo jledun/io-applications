@@ -15,6 +15,6 @@ npm install && \
 echo "build front end for loopback static web app" && \
 npm run build:prod && \
 echo "Terminé !" && \
-cd ../ \ &&
+cd ../ && \
 echo "You can now try to run 'node io-lbapp/.' and enjoy !"
 
