@@ -21,6 +21,17 @@ Three parts :
 * io-ngapp : front end application, building in static pages of loopback based on Angular 5 & bootstrap 4 & font-awesome 4
 * io-ngapp/src/app/shared/lib : modules, services, components usefull and reusable for IO Systems Angular applications => this should be object for a different repository.
 
+## dependencies
+
+A few dependencies :
+* node.js
+* npm with build tools
+* loopback-cli, @angular/cli and nodemon installed as a global packages (see below)
+
+```bash 
+$ npm install -g loopback-cli @angular/cli nodemon # as root
+```
+
 ## Loopback models
 
 Defaults included models :
@@ -32,7 +43,13 @@ Defaults included models :
 * uom.json : units for your application
 * uom-categ.json : category of units (length, weight, ...)
 
-## Loopback install scripts
+## install scripts
+
+In root of the project, an install script does :
+* install npm dependencies for Loopback project
+* generate Angular Loopback SDK
+* install npm dependencies for Angular 7 project
+* build angular project then copy the result in the static folder of Loopback
 
 in io-lbapp/server/scripts/ are a few install script to define a datasource then auto migrate all the models into this datasource.
 
