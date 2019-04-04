@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   name: "default",
   lbApp: {
-    ip: "localhost",
+    ip: "",
     api: 'api'
   }
 };

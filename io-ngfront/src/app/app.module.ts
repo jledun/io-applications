@@ -61,10 +61,10 @@ import { UserManagementModule } from './shared/user-management/user-management.m
     FlexLayoutModule,
 
     // local modules
-    AppRoutingModule,
     LibModule,
     SettingsModule,
     UserManagementModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
